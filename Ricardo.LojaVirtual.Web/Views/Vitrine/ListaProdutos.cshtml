@@ -1,4 +1,5 @@
-﻿@model Ricardo.LojaVirtual.Web.Models.ProdutosViewModel
+﻿@using Ricardo.LojaVirtual.Web.HtmlHelpers
+@model Ricardo.LojaVirtual.Web.Models.ProdutosViewModel
 
 
 @foreach (var p in Model.Produtos)
@@ -8,5 +9,9 @@
         @p.Descricao
         <h3>@p.Preco.ToString("C")</h3>
     </div>
+  
 }
+
+
+@Html.PageLInks(Model.Paginacao, x => Url.Action("ListaProdutos", new {pagina = x}))
 
