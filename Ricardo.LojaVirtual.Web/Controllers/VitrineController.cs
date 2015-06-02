@@ -15,7 +15,7 @@ namespace Ricardo.LojaVirtual.Web.Controllers
         private const int ProdutosPorPagina = 3;
         //
         // GET: /Vitrine/
-        public ViewResult ListaProdutos(int pagina = 1)
+        public ViewResult ListaProdutos(string categoria, int pagina = 1)
         {
             _repositorio = new ProdutosRepositorio();
 
@@ -23,6 +23,7 @@ namespace Ricardo.LojaVirtual.Web.Controllers
             {
 
                 Produtos = _repositorio.Produtos
+                .Where(p => p.Categoria == null || p.Categoria == categoria)
                 .OrderBy(p => p.Descricao)
                 .Skip((pagina - 1) * ProdutosPorPagina)
                 .Take(ProdutosPorPagina),
@@ -33,7 +34,9 @@ namespace Ricardo.LojaVirtual.Web.Controllers
                     PaginaAtual = pagina,
                     ItensPorPagina = ProdutosPorPagina,
                     ItensTotal = _repositorio.Produtos.Count()
-                }
+                },
+
+                CategoriaAtual = categoria
             };
 
 
