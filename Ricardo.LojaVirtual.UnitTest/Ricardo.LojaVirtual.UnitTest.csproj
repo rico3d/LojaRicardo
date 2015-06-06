@@ -86,8 +86,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Ricardo.LojaVirtual.Dominio\Ricardo.LojaVirtual.Dominio.csproj">
+      <Project>{b985b660-490d-401b-80cd-a0a1a39b9f26}</Project>
+      <Name>Ricardo.LojaVirtual.Dominio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ricardo.LojaVirtual.Web\Ricardo.LojaVirtual.Web.csproj">
-      <Project>{78BFB3A7-1E99-4E8A-8518-3BB97364D017}</Project>
+      <Project>{78bfb3a7-1e99-4e8a-8518-3bb97364d017}</Project>
       <Name>Ricardo.LojaVirtual.Web</Name>
     </ProjectReference>
   </ItemGroup>
